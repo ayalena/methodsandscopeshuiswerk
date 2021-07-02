@@ -1,8 +1,7 @@
+
 // Je gaat functies schrijven die we kunnen hergebruiken om een lijst met eindcijfers van studenten te checken. Je zult over de cijfers heen moeten itereren (hoe pak je dat aan?),
 // maar ook een manier moeten vinden om hetgeen dat je verzamelt ergens te bundelen. Op deze manier zul je ontdekken hoe je omgaat met scope. Pak vooral het hoofdstuk op EdHub over for-loops er nog eens bij!
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
-
-const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 /* Opdracht  1: Cum Laude */
 
@@ -13,19 +12,49 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
-
 // ---- Verwachte uitkomst: 6
+const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
+//maak een globale variabele aan om de cum laude cijfers in op te slaan
+const cumlaudeGrades = [];
+
+//gebruik een for loop om over de grades array te itereren
+for (let i = 0; i < grades.length; i++) {
+    //if statement
+    if (grades[i] >= 8) {
+        //sla de >8 cijfers op in de cumlaude array
+        cumlaudeGrades.push(grades[i]);
+    }
+}
+//laat zien wat de lengte van deze array is, kan deze ook opslaan in variabele
+// const cumlaudeStudents = cumlaudeGrades.length;
+// console.log(cumlaudeStudents);
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
-// Log het antwoord in de terminal.
+const array = [];
 
+function cumLaude (array) {
+    for (let j = 0; j < array.length; j++) {
+        //if statement
+        if (array[j] >= 8) {
+            //sla de >8 cijfers op in de array
+            array.push(array[j]);
+        }
+    }
+    return array.length;
+}
+// Log het antwoord in de terminal.
+const cumlaudeArray = array.length;
+console.log(cumlaudeArray);
 // ---- Verwachte uitkomsten:
 // cumLaude(grades) geeft 6
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
+cumLaude(grades);
+cumLaude([6, 4, 5]);
+cumLaude([8, 9, 4, 6, 10]);
 
 
 
